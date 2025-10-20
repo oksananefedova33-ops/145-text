@@ -1,0 +1,39 @@
+/* /ui/text-beautify/image-generate.css */
+.tb-modal .tb-field span {
+  display:block;
+  margin-bottom:6px;
+  color:#c9d4e3;
+  font-size:13px;
+}
+.tb-modal .tb-field textarea {
+  width:100%;
+  background:#0d141f;
+  border:1px solid #1f2b3b;
+  border-radius:10px;
+  padding:10px 12px;
+  color:#e9f0fb;
+  resize:vertical;
+}
+.tb-modal .tb-field select {
+  width:100%;
+  background:#0d141f;
+  border:1px solid #1f2b3b;
+  border-radius:10px;
+  padding:10px 12px;
+  color:#e9f0fb;
+}
+.tb-modal .tb-row {
+  display:flex;
+  gap:12px;
+  align-items:flex-end;
+}
+.tb-modal .tb-status,
+.tb-modal .tb-status-ok,
+.tb-modal .tb-status-warn,
+.tb-gpt-status {
+  display:block;
+  margin-top:8px;
+  font-size:13px;
+}
+.tb-modal .tb-status-ok { color:#32d296; }
+.tb-modal .tb-status-warn { color:#ff6b6b; }

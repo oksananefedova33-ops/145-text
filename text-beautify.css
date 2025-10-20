@@ -1,0 +1,421 @@
+/* /ui/text-beautify/text-beautify.css (v2) */
+
+/* Модалка */
+.tb-modal-back {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  animation: tbFadeIn 0.2s ease;
+}
+
+@keyframes tbFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.tb-modal {
+  background: #0f1622;
+  border: 1px solid #1f2b3b;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  width: 90%;
+  max-width: 720px;
+  max-height: 85vh;
+  overflow-y: auto;
+  animation: tbSlideUp 0.3s ease;
+}
+
+@keyframes tbSlideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Заголовок модалки */
+.tb-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #1f2b3b;
+}
+
+.tb-modal-header h3 {
+  margin: 0;
+  color: #e6f0fa;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.tb-close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #1a2533;
+  color: #e6f0fa;
+  border-radius: 8px;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tb-close:hover {
+  background: #2a3441;
+  transform: scale(1.1);
+}
+
+/* Секции */
+.tb-section {
+  padding: 24px;
+  border-bottom: 1px solid #1f2b3b;
+}
+
+.tb-section:last-child {
+  border-bottom: none;
+}
+
+.tb-section h4 {
+  margin: 0 0 16px;
+  color: #9fb2c6;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Сетка пресетов */
+.tb-presets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.tb-preset-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 16px;
+  background: #1a2533;
+  border: 2px solid #213247;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #e6f0fa;
+}
+
+.tb-preset-btn:hover {
+  background: #2a3441;
+  border-color: #2ea8ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46,168,255,0.2);
+}
+
+.tb-preset-icon {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.tb-preset-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.tb-preset-desc {
+  font-size: 12px;
+  color: #9fb2c6;
+  line-height: 1.4;
+}
+
+/* GPT контролы */
+.tb-gpt-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.tb-gpt-btn {
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.tb-gpt-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(102,126,234,0.4);
+}
+
+.tb-gpt-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tb-settings-btn {
+  padding: 12px;
+  background: #1a2533;
+  border: 1px solid #213247;
+  border-radius: 10px;
+  color: #e6f0fa;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tb-settings-btn:hover {
+  background: #2a3441;
+  border-color: #2ea8ff;
+}
+
+/* Статусы */
+.tb-gpt-status {
+  margin-top: 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  text-align: center;
+  min-height: 20px;
+}
+
+.tb-status-ok {
+  color: #17c964;
+}
+
+.tb-status-warn {
+  color: #f5a524;
+}
+
+.tb-status-error {
+  color: #f31260;
+}
+
+.tb-status-loading {
+  color: #2ea8ff;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Прогресс бар */
+.tb-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #1a2533;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.tb-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  background-size: 200% 100%;
+  animation: progressMove 2s ease infinite;
+  transition: width 0.3s ease;
+  border-radius: 3px;
+}
+
+@keyframes progressMove {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+/* История */
+.tb-history-btn {
+  width: 100%;
+  padding: 12px;
+  background: #1a2533;
+  border: 1px solid #213247;
+  border-radius: 10px;
+  color: #e6f0fa;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.tb-history-btn:hover:not(:disabled) {
+  background: #2a3441;
+  border-color: #2ea8ff;
+}
+
+.tb-history-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Модалка настроек */
+.tb-settings-modal {
+  max-width: 500px;
+}
+
+.tb-settings-content {
+  padding: 24px;
+}
+
+.tb-settings-content label {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.tb-label {
+  display: block;
+  color: #9fb2c6;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.tb-token-input {
+  width: 100%;
+  padding: 12px;
+  background: #111925;
+  border: 1px solid #213247;
+  border-radius: 10px;
+  color: #e6f0fa;
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+  transition: border-color 0.2s;
+}
+
+.tb-token-input:focus {
+  outline: none;
+  border-color: #2ea8ff;
+  box-shadow: 0 0 0 3px rgba(46,168,255,0.1);
+}
+
+.tb-hint {
+  font-size: 12px;
+  color: #9fb2c6;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  background: #1a2533;
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 3px solid #2ea8ff;
+}
+
+.tb-hint a {
+  color: #2ea8ff;
+  text-decoration: none;
+}
+
+.tb-hint a:hover {
+  text-decoration: underline;
+}
+
+.tb-hint-small {
+  display: block;
+  font-size: 11px;
+  color: #7a8fa6;
+  margin-top: 4px;
+}
+
+.tb-hint-warning {
+  background: #2a1a1f;
+  border-left: 3px solid #f31260;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #ff6b8a;
+  margin-bottom: 16px;
+}
+
+.tb-settings-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.tb-btn {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #213247;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.tb-btn-save {
+  background: #17c964;
+  color: white;
+  border-color: #17c964;
+}
+
+.tb-btn-save:hover {
+  background: #12a150;
+  box-shadow: 0 4px 12px rgba(23,201,100,0.3);
+}
+
+.tb-btn-delete {
+  background: #1a2533;
+  color: #f31260;
+  border-color: #f31260;
+}
+
+.tb-btn-delete:hover {
+  background: #2a1a1f;
+  box-shadow: 0 4px 12px rgba(243,18,96,0.3);
+}
+
+.tb-settings-status {
+  min-height: 24px;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* Скроллбар */
+.tb-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tb-modal::-webkit-scrollbar-track {
+  background: #0f1622;
+}
+
+.tb-modal::-webkit-scrollbar-thumb {
+  background: #2a3441;
+  border-radius: 4px;
+}
+
+.tb-modal::-webkit-scrollbar-thumb:hover {
+  background: #3a4451;
+}
+
+/* Респонсив */
+@media (max-width: 768px) {
+  .tb-modal {
+    width: 95%;
+    max-height: 90vh;
+  }
+  
+  .tb-presets-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tb-gpt-controls {
+    grid-template-columns: 1fr;
+  }
+}
